@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.jpos:jpos:2.1.4'
+}
+
+application {
+    // main class (fully-qualified). If your IsoPackUnpackTest is in default package, just use its name.
+    mainClass = 'IsoPackUnpackTest'
+}
+
+// Make sure the local lib is included in the distribution/run classpath
+jar {
+    from('lib') {
+        include '*.jar'
+    }
+}
